@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="dev.solar.springbootdeveloper.TestControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-07-30T08:16:10" hostname="Yusunui-MacBookAir.local" time="0.276">
+  <properties/>
+  <testcase name="getAllMembers : 아티클 조회에 성공한다." classname="dev.solar.springbootdeveloper.TestControllerTest" time="0.276"/>
+  <system-out><![CDATA[17:16:08.920 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [TestControllerTest]: using SpringBootContextLoader
+17:16:08.925 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [dev.solar.springbootdeveloper.TestControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:16:08.926 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [dev.solar.springbootdeveloper.TestControllerTest]: TestControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:16:08.953 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [TestControllerTest]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ImportsContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+17:16:08.994 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/Users/solar/dev/springboot-developer/build/classes/java/main/dev/solar/springbootdeveloper/SpringBootDeveloperApplication.class]
+17:16:09.003 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration dev.solar.springbootdeveloper.SpringBootDeveloperApplication for test class dev.solar.springbootdeveloper.TestControllerTest
+17:16:09.055 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [TestControllerTest]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+17:16:09.056 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [TestControllerTest], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.2)
+
+2023-07-30T17:16:09.241+09:00  INFO 24001 --- [    Test worker] d.s.s.TestControllerTest                 : Starting TestControllerTest using Java 17.0.8 with PID 24001 (started by solar in /Users/solar/dev/springboot-developer)
+2023-07-30T17:16:09.242+09:00  INFO 24001 --- [    Test worker] d.s.s.TestControllerTest                 : No active profile set, falling back to 1 default profile: "default"
+2023-07-30T17:16:09.574+09:00  INFO 24001 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-30T17:16:09.605+09:00  INFO 24001 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 1 JPA repository interfaces.
+2023-07-30T17:16:09.814+09:00  INFO 24001 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-30T17:16:09.933+09:00  INFO 24001 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:fa6669b5-47c7-4daa-ac12-da440dbbd473 user=SA
+2023-07-30T17:16:09.934+09:00  INFO 24001 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-30T17:16:09.962+09:00  INFO 24001 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-30T17:16:09.993+09:00  INFO 24001 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-07-30T17:16:10.090+09:00  WARN 24001 --- [    Test worker] org.hibernate.orm.deprecation            : HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-07-30T17:16:10.172+09:00  INFO 24001 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: 
+    
+    drop table if exists member cascade 
+Hibernate: 
+    
+    create table member (
+       id bigint generated by default as identity,
+        name varchar(255) not null,
+        primary key (id)
+    )
+2023-07-30T17:16:10.556+09:00  INFO 24001 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-30T17:16:10.561+09:00  INFO 24001 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-30T17:16:10.769+09:00  WARN 24001 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-30T17:16:10.954+09:00  INFO 24001 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-07-30T17:16:10.954+09:00  INFO 24001 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-07-30T17:16:10.956+09:00  INFO 24001 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2023-07-30T17:16:10.973+09:00  INFO 24001 --- [    Test worker] d.s.s.TestControllerTest                 : Started TestControllerTest in 1.889 seconds (process running for 2.555)
+2023-07-30T17:16:11.066+09:00  INFO 24001 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-07-30T17:16:11.066+09:00  INFO 24001 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-07-30T17:16:11.067+09:00  INFO 24001 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.name 
+    from
+        member m1_0 
+    where
+        m1_0.id=?
+Hibernate: 
+    update
+        member 
+    set
+        name=? 
+    where
+        id=?
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.name 
+    from
+        member m1_0
+Hibernate: 
+    select
+        m1_0.id,
+        m1_0.name 
+    from
+        member m1_0
+Hibernate: 
+    delete 
+    from
+        member 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        member 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        member 
+    where
+        id=?
+Hibernate: 
+    delete 
+    from
+        member 
+    where
+        id=?
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
