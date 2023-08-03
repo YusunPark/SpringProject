@@ -2,10 +2,13 @@ package dev.solar.blog.controller;
 
 import dev.solar.blog.domain.Article;
 import dev.solar.blog.dto.AddArticleRequest;
+import dev.solar.blog.dto.ArticleRespose;
 import dev.solar.blog.service.BlogService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,5 +28,18 @@ public class BlogApiController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(savedArticle);
     }
+
+    @GetMapping("/api/articles")
+    public ResponseEntity<List<ArticleRespose>> findAllArticles() {
+        List<ArticleRespose> articles = blogService.findAll()
+                .stream()
+                .map(ArticleRespose::new)
+                .toList();
+
+        // 스트림 : 여러 데이터가 모여있는 컬렉션을 간편 처리 기능 : 자바 8 추가
+        return ResponseEntity.ok()
+                .body(articles);
+    }
+
 
 }
