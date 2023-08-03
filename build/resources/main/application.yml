@@ -9,3 +9,10 @@ spring:
     # 테이블 생성 후 data.sql 실행
     defer-datasource-initialization: true
 
+  # api 테스트를 위한 h2 콘솔
+  datasource:
+    url: jdbc:h2:mem:testdb
+
+  h2:
+    console:
+      enabled: true
